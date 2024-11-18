@@ -27,17 +27,22 @@ import { useProductStore } from "../store/product";
 import { IoCreateOutline } from "react-icons/io5";
 import { MdDeleteForever } from "react-icons/md";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const ProductCard = ({ product }) => {
   const [updatedProduct, setUpdatedProduct] = useState(product);
 
+  useEffect(() => {
+    setUpdatedProduct(product);
+  }, [product]);
+
   const textColor = useColorModeValue("gray.600", "gray.200");
   const bg = useColorModeValue("white", "gray.800");
 
-  const { deleteProducts, updateProduct } = useProductStore();
+  const { deleteProduct, updateProduct } = useProductStore();
 
   const handleDeleteProduct = async (pid) => {
-    const { success, message } = await deleteProducts(pid);
+    const { success, message } = await deleteProduct(pid);
 
     if (!success) {
       toaster.create({
@@ -139,7 +144,7 @@ const ProductCard = ({ product }) => {
                     onChange={(e) => {
                       setUpdatedProduct({
                         ...updatedProduct,
-                        price: e.target.value,
+                        price: parseFloat(e.target.value) || 0,
                       });
                     }}
                   ></Input>
