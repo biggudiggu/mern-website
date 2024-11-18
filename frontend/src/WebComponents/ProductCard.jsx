@@ -27,14 +27,9 @@ import { useProductStore } from "../store/product";
 import { IoCreateOutline } from "react-icons/io5";
 import { MdDeleteForever } from "react-icons/md";
 import { useState } from "react";
-import { useEffect } from "react";
 
 const ProductCard = ({ product }) => {
   const [updatedProduct, setUpdatedProduct] = useState(product);
-
-  useEffect(() => {
-    setUpdatedProduct(product);
-  }, [product]);
 
   const textColor = useColorModeValue("gray.600", "gray.200");
   const bg = useColorModeValue("white", "gray.800");
