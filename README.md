@@ -2,6 +2,12 @@
 
 A full-stack web application built using the MERN stack (MongoDB, Express, React, Node.js). This Project serves as a fondation for further learning and experimentation. 
 
+## 🌐 Preview 
+### Home Page
+![HomePage](./frontend/public/HomePage.png)
+### Create Page
+![CreatePage](./frontend/public/CreatePage.png)
+
 ## 🛠️ Technologies
 - **MongoDb:** Database for storing information.
 - **Express.js:** Backend web framework for Node.js.
